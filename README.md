@@ -10,9 +10,10 @@ Wave Function Collapse(WFC) 오픈소스를 바탕으로 던전을 생성하고,
 1. Build : 실행 파일이 있습니다.
 2. WaveFunctionCollapse-master : 원본 WFC 오픈소스가 있습니다.
 3. WFC_project : 던전 생성 프로젝트가 있습니다. Unity 실행파일이 있습니다. Unity Editor에 이 폴더를 추가하여 수정할 수 있습니다.
-4.OpenSourceRepoLink.txt : 원본 WFC 오픈소스 링크가 있습니다.
+4.Open_Source_Repo_Link.txt : 원본 WFC 오픈소스 링크가 있습니다.
 5. README.md : 필수 정보가 포함되어 있습니다.
-6. ProjectDemonstrationVideo.mp4 : 프로젝트 시연 영상입니다.
+6. Project_Demonstration_Document.pdf : 프로젝트 설명 자료입니다.
+7. Project_Demonstration_Video.mp4 : 프로젝트 시연 영상입니다.
 
 ## 2. 실행 방법
 
