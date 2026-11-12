@@ -1,0 +1,77 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/WFCPrototype/Dungeon.uss?fileID=7433441132597879392&amp;guid=57f79d5b88fcd004c9f9699a453679bb&amp;type=3#Dungeon"/>
+    <ui:VisualElement class="screen">
+        <ui:VisualElement class="console">
+            <ui:Label text="파동 함수 붕괴(WFC) 시연" class="eyebrow"/>
+            <ui:VisualElement class="heading">
+                <ui:Label text="무작위로 생성된 던전을 탈출하세요!" class="title"/>
+                <ui:VisualElement class="heading-actions">
+                    <ui:Button name="settings-button" text="설정" class="action action-quiet view-hidden"/>
+                    <ui:Button name="quit-button" text="종료" class="action action-quiet"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="setup-view" class="setup">
+                <ui:Label text="01 / 던전 크기" class="status"/>
+                <ui:Label name="size-hint" class="setup-hint"/>
+                <ui:VisualElement class="setup-row">
+                    <ui:IntegerField name="map-width" label="가로" class="size-field"/>
+                    <ui:IntegerField name="map-height" label="세로" class="size-field"/>
+                </ui:VisualElement>
+                <ui:VisualElement class="separator"/>
+                <ui:Label text="02 / 타일 등장 빈도 설정" class="status"/>
+                <ui:VisualElement class="setup-row">
+                    <ui:IntegerField name="chance-0" label="0방향 / 빈칸" class="chance-field"/>
+                    <ui:IntegerField name="chance-1" label="1방향으로 열린 길" class="chance-field"/>
+                    <ui:IntegerField name="chance-2" label="2방향으로 열린 길" class="chance-field"/>
+                    <ui:IntegerField name="chance-3" label="3방향 / T자 갈림길" class="chance-field"/>
+                    <ui:IntegerField name="chance-4" label="4방향 / 십자" class="chance-field"/>
+                </ui:VisualElement>
+                <ui:Label name="chance-summary" class="setup-hint chance-summary"/>
+                <ui:Label text="각 항목에 0~100을 입력하세요. 0은 후보에서 제외되며 설정된 빈도를 고려하여 등장 확률이 결정됩니다." class="setup-hint"/>
+                <ui:VisualElement class="separator"/>
+                <ui:RadioButtonGroup name="generation-mode" label="모드 선택" choices="빠른 생성 모드,설명 모드" value="0" class="mode-selector"/>
+                <ui:Label text="빠른 생성 모드 : 던전을 빠르게 생성합니다." class="mode-hint"/>
+                <ui:Label text="설명 모드 : 던전이 자동 생성되는 과정을 천천히 설명해주면서 보여줍니다." class="mode-hint"/>
+                <ui:VisualElement class="setup-actions">
+                    <ui:Button name="start-button" text="시작" class="action action-main"/>
+                    <ui:Label name="setup-error" class="setup-error"/>
+                </ui:VisualElement>
+            </ui:VisualElement>
+            <ui:VisualElement name="game-view" class="view-hidden">
+                <ui:VisualElement class="content">
+                    <ui:VisualElement class="board-column">
+                    <ui:VisualElement class="board-frame">
+                        <ui:VisualElement name="board" class="board"/>
+                    </ui:VisualElement>
+                    <ui:Label name="board-caption" text="각 칸에 적힌 숫자는 몇개의 타일이 후보로 존재하는지를 나타냅니다." class="board-caption view-hidden"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="panel">
+                        <ui:Label name="stats" class="status"/>
+                        <ui:Label name="stage" class="stage"/>
+                        <ui:VisualElement class="normal-legends">
+                        <ui:VisualElement class="separator"/>
+                        <ui:Label text="숫자 / 남은 타일 후보 수" class="legend"/>
+                        <ui:Label text="노란색 / 선택된 칸" class="legend amber"/>
+                        <ui:Label name="eligible-legend" text="파란색 / 최소 엔트로피 칸 후보" class="legend blue view-hidden"/>
+                        <ui:Label name="changed-legend" text="청록색 / 후보가 줄어든 칸" class="legend cyan"/>
+                        <ui:Label text="P 플레이어 · S 시작점 · E 출구" class="legend"/>
+                        </ui:VisualElement>
+                        <ui:VisualElement name="explanation-view" class="explanation view-hidden">
+                            <ui:Label text="파란색 · 타일을 정할 칸 후보들" class="explanation-text blue"/>
+                            <ui:Label text="노란색 · 타일을 정할 칸" class="explanation-text amber"/>
+                            <ui:Label text="초록색 · 관찰하여 타일을 확정한 칸" class="explanation-text green"/>
+                            <ui:Label text="빨간색 · 방금 정해진 칸에 의해 제거되는 후보 타일들" class="explanation-text red"/>
+                            <ui:Label text="빨간색 · 선택된 던전과 연결되지 않아 제거되는 경로" class="explanation-text red"/>
+                        </ui:VisualElement>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:VisualElement class="speed-controls">
+                    <ui:Slider name="generation-speed" label="생성 속도" low-value="0.5" high-value="10" value="1" class="speed-slider"/>
+                    <ui:Label name="speed-value" text="1.0배" class="speed-value"/>
+                </ui:VisualElement>
+                <ui:Label name="controls" class="footer"/>
+            </ui:VisualElement>
+            <ui:Label text="WFC 원작: Maxim Gumin · MIT License · github.com/mxgmn/WaveFunctionCollapse" class="attribution"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
